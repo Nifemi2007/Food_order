@@ -59,11 +59,26 @@ main {
   height: 65%;
   width: 100%;
   border-radius: 10px;
+
 }
 
-.animate1 {
+.animate{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-50%);
+  transition: all 1s;
+}
+
+.show {
+  transform: translateX(0%);
+  filter: blur(0);
+  opacity: 1;
+}
+
+/* .animate1 {
   animation-name: animate1;
   animation-duration: 2s;
+
 }
 
 .animate2 {
@@ -87,7 +102,7 @@ main {
   from {
     opacity: 0;
   }
-  /* 50%{opacity: 50;} */
+  
   to {
     opacity: 100;
   }
@@ -104,12 +119,12 @@ main {
 
 @keyframes animate3 {
   from {
-    margin-right: 100px;
+    margin-right: -50px;
   }
   to {
-    margin-right: 0px;
+    margin-right: 0;
   }
-}
+} */
 
 .add-cart-btn {
   background-color: white;
@@ -288,11 +303,6 @@ flex-wrap: nowrap;
     height: 280px;
   }
 
-  .add-cart-btn {
-    top: 70%;
-  }
-  .add-to-cart {
-    top: 70%;
-  }
+  
   
 }

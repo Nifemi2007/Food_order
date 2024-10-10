@@ -2,7 +2,21 @@
 
 const addCart = document.querySelector('.add-cart-btn')
 const addCartBtn = document.querySelector('.add-to-cart')
+const animation = document.querySelectorAll('.box')
 
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach((entry)=>{
+        console.log(entry);
+        if (entry.isIntersecting){
+        entry.target.classList.add('show')
+        } else {
+            entry.target.classList.remove('show')
+        }
+       
+    })
+})
+animation.forEach(el=>observer.observe(el))
 
 addCart.addEventListener('mouseover', function(){
     addCart.classList.toggle('hidden')
