@@ -75,56 +75,7 @@ main {
   opacity: 1;
 }
 
-/* .animate1 {
-  animation-name: animate1;
-  animation-duration: 2s;
 
-}
-
-.animate2 {
-  animation-name: animate2;
-  animation-duration: 1.5s;
-}
-
-.animate3 {
-  animation-name: animate3;
-  animation-duration: 1s;
-}
-
-.delay1 {
-  animation-delay: 0.1s;
-}
-.delay2 {
-  animation-delay: 0.2s;
-}
-
-@keyframes animate1 {
-  from {
-    opacity: 0;
-  }
-  
-  to {
-    opacity: 100;
-  }
-}
-
-@keyframes animate2 {
-  from {
-    margin-top: 100px;
-  }
-  to {
-    margin-top: 0px;
-  }
-}
-
-@keyframes animate3 {
-  from {
-    margin-right: -50px;
-  }
-  to {
-    margin-right: 0;
-  }
-} */
 
 .add-cart-btn {
   background-color: white;
@@ -141,8 +92,36 @@ main {
   top: 60%;
   right: 25%;
   border: 2px solid hsl(14, 25%, 72%);
+transition-property: display;
+transition-duration: 1s;
+transition-behavior: allow-discrete;
+
 }
 
+/* .add-cart-btn:hover{
+ 
+} */
+
+.hidden {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  display: none;
+}
+
+
+  @keyframes fadeIn {
+    from{opacity: 1;}
+    to {opacity: 0;}
+  }
+
+  @keyframes fadeOut {
+    from{opacity: 0;}
+    to {opacity: 1;}
+  }
+.fade{
+  animation-name: fadeOut;
+  animation-duration: 1s;
+}
 
 .add-cart-btn img {
   width: 20px;
@@ -171,7 +150,14 @@ main {
   align-items: center;
   padding: 0px 15px;
   color: white;
+  transition-property: display;
+transition-duration: 1s;
+transition-behavior: allow-discrete;
+  /* opacity: 1; */
 }
+
+
+
 
 .add-to-cart img {
   width: 20px;
@@ -179,25 +165,25 @@ main {
   padding: 4px;
   border-radius: 100%;
   border: 2px solid white;
+  fill: white;
 }
 
-.add-to-cart:hover {
+:hover{
   cursor: pointer;
 }
 
 .add-to-cart img:hover {
-  background-color: white;
-  transition: 0.5s;
-  cursor: pointer;
+transform: scale(1.1); 
+ transition: 0.5s;
+  
 }
+
 
 .add-to-cart p {
   display: inline;
 }
 
-.hidden {
-  display: none;
-}
+
 
 .text {
   margin-top: 30px;
@@ -303,6 +289,13 @@ flex-wrap: nowrap;
     height: 280px;
   }
 
-  
+  .add-cart-btn{
+
+    top: 70%;
+  }
+
+  .add-to-cart {
+    top: 70%;
+  }
   
 }

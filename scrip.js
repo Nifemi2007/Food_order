@@ -1,73 +1,65 @@
-'use-strict'
+"use-strict";
 
-const addCart = document.querySelector('.add-cart-btn')
-const addCartBtn = document.querySelector('.add-to-cart')
-const animation = document.querySelectorAll('.box')
+const addCart = document.querySelectorAll(".add-cart-btn");
+const addCartBtn = document.querySelectorAll(".add-to-cart");
+const animation = document.querySelectorAll(".box");
+const quantity = document.querySelectorAll('.quantity')
+const increaseOrder = document.querySelectorAll('.increment')
+const dereaseOrder = document.querySelectorAll('.decrement')
 
-const observer = new IntersectionObserver((entries)=>{
 
-    entries.forEach((entry)=>{
-        console.log(entry);
-        if (entry.isIntersecting){
-        entry.target.classList.add('show')
+
+quantity.forEach(numb=>{
+numb.textContent = 0
+
+dereaseOrder.forEach(i=>{
+    i.addEventListener('click', ()=>{
+        if(numb.textContent > 0){
+            numb.textContent--
         } else {
-            entry.target.classList.remove('show')
+            numb.textContent = 0
         }
-       
     })
 })
-animation.forEach(el=>observer.observe(el))
 
-addCart.addEventListener('mouseover', function(){
-    addCart.classList.toggle('hidden')
-    addCartBtn.classList.toggle('hidden')
-}
-)
-
-addCartBtn.addEventListener('mouseout', function(){
-    addCart.classList.toggle('hidden')
-    addCartBtn.classList.toggle('hidden')
-}
-)
-
-// const addCart = document.querySelectorAll('.add-cart-btn')
-// const addCartBtn = document.querySelectorAll('.add-to-cart')
-
-
-// for(let i = 0; i<addCart.length; i++){
+increaseOrder.forEach(entry=>{
+    entry.addEventListener('click',()=>{
+        numb.textContent++
+    })
+})
+})
     
-//     console.log(i)
-//     // addCart[i].addEventListener('mouseover', ()=>{
-//     // })
-// }
 
-// addCartBtn.forEach((item)=>{
-// let btn=''
 
-//     addCart.forEach((ele)=>{
-//         // console.log(ele)
-//         btn = item
-//         ele.addEventListener('mouseover', function(){
-//             ele.classList.toggle('hidden')
-//             console.log(btn);
-            
-//             btn.classList.toggle('hidden')
-//         }
-//         )
-//         })
-// })
+addCart.forEach(el=>{
+    el.addEventListener('mouseover', ()=>{
+       el.classList.add('hidden')
+       el.classList.remove('fade')
+    })
+
+    addCartBtn.forEach(entry=>{
+        entry.addEventListener('mouseout', ()=>{
+            el.classList.remove('hidden')
+            el.classList.add('fade')
+        })
+    })
+})
 
 
 
 
 
 
-// addCart.addEventListener('mouseover', function(ele){
-    
-//     // addCart.classList.toggle('hidden')
-//     // addCartBtn.classList.toggle('hidden')
-  
-//     // addCartBtn.style.transition= '0.5s'
-// }
-// )
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show");
+    }
+  });
+});
+animation.forEach((el) => observer.observe(el));
+
+
 
